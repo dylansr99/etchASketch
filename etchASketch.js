@@ -13,14 +13,52 @@ function generateNumberOfSquares(input) {
    
 };
 
-generateNumberOfSquares(16)
+generateNumberOfSquares(16);
+
+function removeGrid() {
+  const removeGrid = document.querySelectorAll('.squares')
+  removeGrid.forEach(square => square.remove()
+)
+}
+
+let newGridButton = document.querySelector('#generateNewGrid');
+newGridButton.addEventListener('click', generateNewGrid);
+
+function generateNewGrid() {
+  newGridButton.addEventListener('click', () => {
+
+    removeGrid()
+
+    
+  
+    let userInput = prompt("Enter your column input");
+
+    if (userInput < 101) {
+      generateNumberOfSquares(userInput)
+    }
+
+    else if (userInput > 100) {
+      userInput = prompt("Input must be lower than 100!")
+      generateNumberOfSquares(userInput)
+    }
+
+    
+    let colorSquares = document.querySelectorAll('.squares')
+    colorSquares.forEach(square => square.addEventListener('mouseover', () => {
+      square.style.backgroundColor = "black"
+    }))
+
+  }, { once: true })
+};
 
 let squares = document.querySelectorAll('.squares')
 squares.forEach(square => square.addEventListener('mouseover', () => {
      square.style.backgroundColor = "black"
 }));
 
-let newGridButton = document.querySelector('#generateNewGrid')
+
+
+
 
 
 
